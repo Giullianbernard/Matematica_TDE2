@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Computação Gráfica com Phaser</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+</head>
+
+<body>
+
+<script>
+
+const config = {
+    type: Phaser.AUTO,
+
+    width: 800,
+    height: 600,
+
+    backgroundColor: '#222222',
+
+    scene: {
+        create: criar,
+        update: atualizar
+    }
+};
+
+const jogo = new Phaser.Game(config);
+
+let quadrado;
+let teclas;
+
+function criar() {
+
+    quadrado = this.add.rectangle(
+        400,
+        300,
+        100,
+        100,
+        0xffffff
+    );
+
+    teclas = this.input.keyboard.createCursorKeys();
+
+    this.add.text(
+        20,
+        20,
+        'Computação Gráfica com Phaser',
+        {
+            fontSize: '24px',
+            color: '#ffffff'
+        }
+    );
+
+    this.add.text(
+        20,
+        550,
+        'Use as setas do teclado para movimentar',
+        {
+            fontSize: '18px',
+            color: '#ffffff'
+        }
+    );
+}
+
+function atualizar() {
+
+
+    const velocidade = 5;
+
+
+    if (teclas.right.isDown) {
+        quadrado.x += velocidade;
+    }
+
+
+    if (teclas.left.isDown) {
+        quadrado.x -= velocidade;
+    }
+
+
+    if (teclas.up.isDown) {
+        quadrado.y -= velocidade;
+    }
+
+
+    if (teclas.down.isDown) {
+        quadrado.y += velocidade;
+    }
+}
+
+</script>
+
+</body>
+</html>
