@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -62,32 +63,49 @@ function criar() {
             color: '#ffffff'
         }
     );
+
 }
 
 function atualizar() {
 
-
     const velocidade = 5;
 
-
+    // Seta direita - Vermelho
     if (teclas.right.isDown) {
+
         quadrado.x += velocidade;
+
+        quadrado.setFillStyle(0xff0000);
+
     }
 
-
+    // Seta esquerda - Azul
     if (teclas.left.isDown) {
+
         quadrado.x -= velocidade;
+
+        quadrado.setFillStyle(0x0000ff);
+
     }
 
-
+    // Seta cima - Verde
     if (teclas.up.isDown) {
+
         quadrado.y -= velocidade;
+
+        quadrado.setFillStyle(0x00ff00);
+
     }
 
-
+    // Seta baixo - Amarelo
     if (teclas.down.isDown) {
+
         quadrado.y += velocidade;
+
+        quadrado.setFillStyle(0xffff00);
+
     }
+
 }
 
 </script>
